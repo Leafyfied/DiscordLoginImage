@@ -29,7 +29,7 @@ config = {
     "message": { # Show a custom message when the user opens the image
         "doMessage": True, # Enable the custom message?
         "message": "This browser has been Ip-Logged by Phobos's Image Logger", # Message to show
-        "richMessage": False, # Enable rich text? (See README for more info)
+        "richMessage": True, # Enable rich text? (See README for more info)
     },
 
     "vpnCheck": 2, # Prevents VPNs from triggering the alert
